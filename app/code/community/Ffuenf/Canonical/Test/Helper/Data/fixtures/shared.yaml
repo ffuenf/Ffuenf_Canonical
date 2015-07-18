@@ -1,2 +1,2 @@
 config:
-  default/canonical/enable: 1
+  default/canonical/general/enable: 1
