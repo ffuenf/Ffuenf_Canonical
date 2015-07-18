@@ -31,6 +31,22 @@
             </block>
         </reference>
     </catalog_product_view>
+    <catalog_category_default>
+        <reference name="head">	
+            <action method="unsetChild"><name>canonical_url</name></action>
+            <block type="page/html_head" name="canonical_url" as="canonical_url">
+                <action method="setTemplate"><template>canonical/head-category.phtml</template></action>
+            </block>
+        </reference>
+    </catalog_category_default>
+    <catalog_category_layered>
+        <reference name="head">	
+            <action method="unsetChild"><name>canonical_url</name></action>
+            <block type="page/html_head" name="canonical_url" as="canonical_url">
+                <action method="setTemplate"><template>canonical/head-category.phtml</template></action>
+            </block>
+        </reference>
+    </catalog_category_layered>
     <catalogsearch_result_index>
         <reference name="head">	
             <action method="unsetChild"><name>canonical_url</name></action>

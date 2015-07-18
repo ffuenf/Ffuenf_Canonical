@@ -23,14 +23,32 @@ class Ffuenf_Canonical_Helper_Data extends Ffuenf_Canonical_Helper_Core
     /**
      * config paths.
      */
-    const CONFIG_EXTENSION_ACTIVE = 'canonical/enable';
+    const CONFIG_EXTENSION_ACTIVE = 'canonical/general/enable';
+    const CONFIG_EXTENSION_SCHEME = 'canonical/override/scheme';
+    const CONFIG_EXTENSION_HOST = 'canonical/override/host';
+    const XML_PATH_USE_CATEGORY_CANONICAL_TAG = 'catalog/seo/category_canonical_tag';
+    const XML_PATH_USE_PRODUCT_CANONICAL_TAG = 'catalog/seo/product_canonical_tag';
 
     /**
      * Variable for if the extension is active.
      *
      * @var bool
      */
-    protected $bExtensionActive;
+    protected $_bExtensionActive;
+
+    /**
+     * Variable for if canonical tag for category is active (magento default setting).
+     *
+     * @var bool
+     */
+    protected $_bCategoryCanonicalActive;
+
+    /**
+     * Variable for if canonical tag for product is active (magento default setting).
+     *
+     * @var bool
+     */
+    protected $_bProductCanonicalActive;
 
     /**
      * Check to see if the extension is active.
@@ -39,10 +57,36 @@ class Ffuenf_Canonical_Helper_Data extends Ffuenf_Canonical_Helper_Core
      */
     public function isExtensionActive()
     {
-        if ($this->bExtensionActive === null) {
-            $this->bExtensionActive = $this->getStoreFlag(self::CONFIG_EXTENSION_ACTIVE, 'bExtensionActive');
+        if ($this->_bExtensionActive === null) {
+            $this->_bExtensionActive = $this->getStoreFlag(self::CONFIG_EXTENSION_ACTIVE, '_bExtensionActive');
         }
-        return $this->bExtensionActive;
+        return $this->_bExtensionActive;
+    }
+
+    /**
+     * Check to see if canonical tag for category is active (magento default setting).
+     *
+     * @return bool
+     */
+    public function isCategoryCanonicalActive()
+    {
+        if ($this->_bCategoryCanonicalActive === null) {
+            $this->_bCategoryCanonicalActive = $this->getStoreFlag(self::XML_PATH_USE_CATEGORY_CANONICAL_TAG, '_bCategoryCanonicalActive');
+        }
+        return $this->_bCategoryCanonicalActive;
+    }
+
+    /**
+     * Check to see if canonical tag for product is active (magento default setting).
+     *
+     * @return bool
+     */
+    public function isProductCanonicalActive()
+    {
+        if ($this->_bProductCanonicalActive === null) {
+            $this->_bProductCanonicalActive = $this->getStoreFlag(self::XML_PATH_USE_PRODUCT_CANONICAL_TAG, '_bProductCanonicalActive');
+        }
+        return $this->_bProductCanonicalActive;
     }
 
     public function getHeadCanonicalUrl()
@@ -50,15 +94,14 @@ class Ffuenf_Canonical_Helper_Data extends Ffuenf_Canonical_Helper_Core
         if (empty($this->_data['urlKey'])) {
             $url = Mage::helper('core/url')->getCurrentUrl();
             $parsedUrl = parse_url($url);
-            $scheme = $parsedUrl['scheme'];
-            $host = $parsedUrl['host'];
-            $port = isset($parsedUrl['port']) ? $parsedUrl['port'] : null;
+            $scheme = (Mage::getStoreConfig(self::CONFIG_EXTENSION_SCHEME) != '') ? Mage::getStoreConfig(self::CONFIG_EXTENSION_SCHEME) : $parsedUrl['scheme'];
+            $host = (Mage::getStoreConfig(self::CONFIG_EXTENSION_HOST) != '') ? Mage::getStoreConfig(self::CONFIG_EXTENSION_HOST) : $parsedUrl['host'];
             $path = $parsedUrl['path'];
-            $headUrl = $scheme . '://' . $host . ($port && '80' != $port ? ':' . $port : '') . $path;
+            $headUrl = $scheme . '://' . $host . $path;
             if (!preg_match('/\.(rss|html|htm|xml|php?)$/', strtolower($headUrl)) && substr($headUrl, -1) != '/') {
                 $headUrl .= '/';
             }
-            $this->_data['urlKey'] =$headUrl;
+            $this->_data['urlKey'] = $headUrl;
         }
         return $this->_data['urlKey'];
     }
@@ -68,24 +111,28 @@ class Ffuenf_Canonical_Helper_Data extends Ffuenf_Canonical_Helper_Core
         $product_id =  Mage::app()->getRequest()->getParam('id');
         $_product = Mage::getModel('catalog/product')->load($product_id);
         $selected = $_product->getData('ffuenf_canonicalurl');
+        $url = Mage::helper('core/url')->getCurrentUrl();
+        $parsedUrl = parse_url($url);
+        $scheme = (Mage::getStoreConfig(self::CONFIG_EXTENSION_SCHEME) != '') ? Mage::getStoreConfig(self::CONFIG_EXTENSION_SCHEME) : $parsedUrl['scheme'];
+        $host = (Mage::getStoreConfig(self::CONFIG_EXTENSION_HOST) != '') ? Mage::getStoreConfig(self::CONFIG_EXTENSION_HOST) : $parsedUrl['host'];
+        $baseUrl = $scheme . '://' . $host . '/';
         if ($selected != NULL) {
             if ($selected == 1) {
                 $product_id =  Mage::app()->getRequest()->getParam('id');
                 $_item = Mage::getModel('catalog/product')->load($product_id);
-                $this->_data['urlKey'] = Mage::getBaseUrl().$_item->getUrlKey().Mage::helper('catalog/product')->getProductUrlSuffix();
+                $this->_data['urlKey'] = $baseUrl.$_item->getUrlKey().Mage::helper('catalog/product')->getProductUrlSuffix();
                 if (!preg_match('/\.(rss|html|htm|xml|php?)$/', strtolower($this->_data['urlKey'])) && substr($this->_data['urlKey'], -1) != '/') {
                     $this->_data['urlKey'] .= '/';
                 }
                 return $this->_data['urlKey'];
             } else {
-                $base_url = Mage::getBaseUrl();
-                return $base_url . $selected;
+                return $baseUrl . $selected;
             }
         } else {
             if (empty($this->_data['urlKey'])) {
                 $product_id =  Mage::app()->getRequest()->getParam('id');
                 $_item = Mage::getModel('catalog/product')->load($product_id);
-                $this->_data['urlKey'] = Mage::getBaseUrl().$_item->getUrlKey().Mage::helper('catalog/product')->getProductUrlSuffix();
+                $this->_data['urlKey'] = $baseUrl.$_item->getUrlKey().Mage::helper('catalog/product')->getProductUrlSuffix();
                 if (!preg_match('/\.(rss|html|htm|xml|php?)$/', strtolower($this->_data['urlKey'])) && substr($this->_data['urlKey'], -1) != '/') {
                     $this->_data['urlKey'] .= '/';
                 }

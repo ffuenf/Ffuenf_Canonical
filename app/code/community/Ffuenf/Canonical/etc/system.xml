@@ -51,6 +51,33 @@
                         </enable>
                     </fields>
                 </general>
+                <override translate="label" module="ffuenf_canonical">
+                    <label>Override Configuration</label>
+                    <sort_order>1001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <scheme translate="label">
+                            <label>Canonical Scheme</label>
+                            <comment><![CDATA[Set a different scheme for all canonical links (http / https)]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </scheme>
+                        <host translate="label">
+                            <label>Canonical Host</label>
+                            <comment><![CDATA[Set a different domain for all canonical links]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </host>
+                    </fields>
+                </override>
             </groups>
         </canonical>
     </sections>
