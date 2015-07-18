@@ -24,6 +24,11 @@
         </Ffuenf_Canonical>
     </modules>
     <global>
+        <helpers>
+            <ffuenf_canonical>
+                <class>Ffuenf_Canonical_Helper</class>
+            </ffuenf_canonical>
+        </helpers>
         <resources>
             <canonical_setup>
                 <setup>
