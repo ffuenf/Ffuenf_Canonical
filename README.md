@@ -5,12 +5,14 @@ Ffuenf_Canonical
 [![Code Quality](https://scrutinizer-ci.com/g/ffuenf/Ffuenf_Canonical/badges/quality-score.png)][code_quality]
 [![Code Coverage](https://scrutinizer-ci.com/g/ffuenf/Ffuenf_Canonical/badges/coverage.png)][code_coverage]
 [![Code Climate](https://codeclimate.com/github/ffuenf/Ffuenf_Canonical/badges/gpa.svg)][codeclimate_gpa]
+[![PayPal Donate](https://img.shields.io/badge/paypal-donate-blue.svg)][paypal_donate]
 
 [tag]: https://github.com/ffuenf/Ffuenf_Canonical
 [travis]: https://travis-ci.org/ffuenf/Ffuenf_Canonical
 [code_quality]: https://scrutinizer-ci.com/g/ffuenf/Ffuenf_Canonical
 [code_coverage]: https://scrutinizer-ci.com/g/ffuenf/Ffuenf_Canonical
 [codeclimate_gpa]: https://codeclimate.com/github/ffuenf/Ffuenf_Canonical
+[paypal_donate]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=J2PQS2WLT2Y8W&item_name=Magento%20Extension%3a%20Ffuenf_Canonical&item_number=Ffuenf_Canonical&currency_code=EUR
 
 This is a extension for Magento Community Edition that adds advanced settings for canonical links.
 
@@ -24,7 +26,7 @@ The following versions are supported and tested:
 * Magento Community Edition 1.8.1.0
 * Magento Community Edition 1.9.1.0
 * Magento Community Edition 1.9.1.1
-* Magento Community Edition 1.9.2.0
+* Magento Community Edition 1.9.2.1
 
 Other versions are assumed to work.
 
