@@ -25,38 +25,31 @@
 class Ffuenf_Canonical_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
 {
     /**
+     * @var Ffuenf_Canonical_Helper_Data
+     */
+    protected $_helper;
+
+    public function setUp()
+    {
+        $this->_helper = new Ffuenf_Canonical_Helper_Data();
+    }
+
+    public function tearDown()
+    {
+        $this->_helper = null;
+    }
+
+    /**
      * Tests is extension active.
      *
      * @test
-     * @covers Ffuenf_Canonical_Helper_Data::isExtensionActive
+     * @covers Ffuenf_Pagespeed_Helper_Data::isExtensionActive
      */
     public function testIsExtensionActive()
     {
         $this->assertTrue(
-            Mage::helper('ffuenf_canonical')->isExtensionActive(),
+            $this->_helper->isExtensionActive(),
             'Extension is not active please check config'
-        );
-    }
-
-    /**
-     * Tests whether extension uses the old-style admin routing (not compatible with SUPEE-6788).
-     *
-     * @test
-     */
-    public function testGetOldAdminRouting()
-    {
-        $routers = Mage::getConfig()->getNode('admin/routers');
-        $offendingExtensions = array();
-        foreach ($routers[0] as $router) {
-            $name = $router->args->module;
-            if ($name != 'Mage_Adminhtml') {
-                $offendingExtensions[] = $router->args->module;
-            }
-        }
-        $this->assertEquals(
-            count($offendingExtensions),
-            0,
-            'This extension uses old-style admin routing which is not compatible with SUPEE-6788 / Magento 1.9.2.2+'
         );
     }
 }

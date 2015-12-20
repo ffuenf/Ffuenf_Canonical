@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Ffuenf_Canonical extension.
  *
@@ -17,15 +16,14 @@
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
 
-class Ffuenf_Canonical_Helper_Data extends Ffuenf_Canonical_Helper_Core
+class Ffuenf_Canonical_Helper_Data extends Ffuenf_Common_Helper_Core
 {
-
     /**
      * config paths.
      */
-    const CONFIG_EXTENSION_ACTIVE = 'canonical/general/enable';
-    const CONFIG_EXTENSION_SCHEME = 'canonical/override/scheme';
-    const CONFIG_EXTENSION_HOST = 'canonical/override/host';
+    const CONFIG_EXTENSION_ACTIVE = 'ffuenf_canonical/general/enable';
+    const CONFIG_EXTENSION_SCHEME = 'ffuenf_canonical/override/scheme';
+    const CONFIG_EXTENSION_HOST = 'ffuenf_canonical/override/host';
     const XML_PATH_USE_CATEGORY_CANONICAL_TAG = 'catalog/seo/category_canonical_tag';
     const XML_PATH_USE_PRODUCT_CANONICAL_TAG = 'catalog/seo/product_canonical_tag';
 

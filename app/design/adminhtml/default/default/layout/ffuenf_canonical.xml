@@ -21,7 +21,7 @@
     <default>
         <reference name="header">
             <action method="setTemplate">
-                <template>canonical/canonical/edit/tab/header.phtml</template>
+                <template>ffuenf/canonical/edit/tab/header.phtml</template>
             </action>
         </reference>
     </default>

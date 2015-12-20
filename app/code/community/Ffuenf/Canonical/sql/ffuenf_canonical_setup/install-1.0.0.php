@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Ffuenf_Canonical extension.
+ * Ffuenf_Pagespeed extension.
  *
  * NOTICE OF LICENSE
  *
@@ -16,7 +15,9 @@
  * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
-$installer = new Mage_Eav_Model_Entity_Setup('core_setup');
+
+$installer = $this;
+/* @var $installer Mage_Core_Model_Resource_Setup */
 
 $installer->startSetup();
 $installer->addAttribute('catalog_product', 'ffuenf_canonicalurl', array(
