@@ -43,7 +43,7 @@ class Ffuenf_Canonical_Test_Helper_Data extends EcomDev_PHPUnit_Test_Case
      * Tests is extension active.
      *
      * @test
-     * @covers Ffuenf_Pagespeed_Helper_Data::isExtensionActive
+     * @covers Ffuenf_Canonical_Helper_Data::isExtensionActive
      */
     public function testIsExtensionActive()
     {
