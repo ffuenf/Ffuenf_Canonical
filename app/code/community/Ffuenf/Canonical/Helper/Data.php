@@ -118,7 +118,7 @@ class Ffuenf_Canonical_Helper_Data extends Ffuenf_Common_Helper_Core
             if ($selected == 1) {
                 $product_id = Mage::app()->getRequest()->getParam('id');
                 $_item = Mage::getModel('catalog/product')->load($product_id);
-                $this->_data['urlKey'] = $baseUrl.$_item->getUrlKey() . Mage::helper('catalog/product')->getProductUrlSuffix();
+                $this->_data['urlKey'] = $baseUrl . $_item->getUrlKey() . Mage::helper('catalog/product')->getProductUrlSuffix();
                 if (!preg_match('/\.(rss|html|htm|xml|php?)$/', strtolower($this->_data['urlKey'])) && substr($this->_data['urlKey'], -1) != '/') {
                     $this->_data['urlKey'] .= '/';
                 }
@@ -130,7 +130,7 @@ class Ffuenf_Canonical_Helper_Data extends Ffuenf_Common_Helper_Core
             if (empty($this->_data['urlKey'])) {
                 $product_id = Mage::app()->getRequest()->getParam('id');
                 $_item = Mage::getModel('catalog/product')->load($product_id);
-                $this->_data['urlKey'] = $baseUrl.$_item->getUrlKey() . Mage::helper('catalog/product')->getProductUrlSuffix();
+                $this->_data['urlKey'] = $baseUrl . $_item->getUrlKey() . Mage::helper('catalog/product')->getProductUrlSuffix();
                 if (!preg_match('/\.(rss|html|htm|xml|php?)$/', strtolower($this->_data['urlKey'])) && substr($this->_data['urlKey'], -1) != '/') {
                     $this->_data['urlKey'] .= '/';
                 }
