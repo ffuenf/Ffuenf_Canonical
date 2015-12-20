@@ -15,7 +15,7 @@
  * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
  */
-$installer = Mage::getResourceModel('catalog/setup','catalog_setup');
+$installer = Mage::getResourceModel('catalog/setup', 'catalog_setup');
 $conn = $installer->getConnection();
 
 $installer->startSetup();
