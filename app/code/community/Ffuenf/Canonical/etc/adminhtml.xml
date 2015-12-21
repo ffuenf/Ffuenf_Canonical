@@ -30,7 +30,7 @@
                             <config>
                                 <children>
                                     <canonical translate="title" module="ffuenf_canonical">
-                                        <title>Backup Module</title>
+                                        <title>Ffuenf_Canonical Module</title>
                                     </canonical>
                                 </children>
                             </config>

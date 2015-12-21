@@ -18,21 +18,23 @@
 */
 -->
 <config>
-    <tabs>
-        <ffuenf>
-            <label>ffuenf</label>
-            <sort_order>508</sort_order>
-        </ffuenf>
-    </tabs>
     <sections>
-        <canonical translate="label" module="ffuenf_canonical">
+        <ffuenf_canonical translate="label" module="ffuenf_canonical">
             <tab>ffuenf</tab>
             <label>Canonical</label>
-            <sort_order>900</sort_order>
+            <sort_order>10</sort_order>
             <show_in_default>1</show_in_default>
-            <show_in_website>1</show_in_website>
-            <show_in_store>1</show_in_store>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
             <groups>
+                <teaser translate="label" module="ffuenf_canonical">
+                    <frontend_model>Ffuenf_Canonical_Block_Adminhtml_System_Config_Fieldset_Teaser</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <expanded>1</expanded>
+                </teaser>
                 <general translate="label" module="ffuenf_canonical">
                     <label>General Configuration</label>
                     <sort_order>1000</sort_order>
@@ -79,6 +81,6 @@
                     </fields>
                 </override>
             </groups>
-        </canonical>
+        </ffuenf_canonical>
     </sections>
 </config>

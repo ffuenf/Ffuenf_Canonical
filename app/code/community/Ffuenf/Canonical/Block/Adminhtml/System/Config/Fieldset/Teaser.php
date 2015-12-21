@@ -1,7 +1,6 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
- * Ffuenf_Canonical extension
+ * Ffuenf_Canonical extension.
  *
  * NOTICE OF LICENSE
  *
@@ -15,16 +14,9 @@
  * @author     Achim Rosenhagen <a.rosenhagen@ffuenf.de>
  * @copyright  Copyright (c) 2015 ffuenf (http://www.ffuenf.de)
  * @license    http://opensource.org/licenses/mit-license.php MIT License
-*/
--->
-<config>
-    <modules>
-        <Ffuenf_Canonical>
-            <active>true</active>
-            <codePool>community</codePool>
-            <depends>
-                <Ffuenf_Common />
-            </depends>
-        </Ffuenf_Canonical>
-    </modules>
-</config> 
+ */
+
+class Ffuenf_Canonical_Block_Adminhtml_System_Config_Fieldset_Teaser extends Ffuenf_Common_Block_Adminhtml_System_Config_Fieldset_Teaser
+{
+    protected $_moduleName = 'Ffuenf_Canonical';
+}

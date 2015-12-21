@@ -20,7 +20,7 @@
 <config>
     <modules>
         <Ffuenf_Canonical>
-            <version>1.0.1</version>
+            <version>1.1.0</version>
         </Ffuenf_Canonical>
     </modules>
     <global>
@@ -29,22 +29,27 @@
                 <class>Ffuenf_Canonical_Helper</class>
             </ffuenf_canonical>
         </helpers>
+        <blocks>
+            <ffuenf_canonical>
+                <class>Ffuenf_Canonical_Block</class>
+            </ffuenf_canonical>
+        </blocks>
         <resources>
-            <canonical_setup>
+            <ffuenf_canonical_setup>
                 <setup>
                     <module>Ffuenf_Canonical</module>
                 </setup>
                 <connection>
                     <use>core_setup</use>
                 </connection>
-            </canonical_setup>
+            </ffuenf_canonical_setup>
         </resources>
     </global>
     <frontend>
         <layout>
             <updates>
                 <ffuenf_canonical>
-                    <file>ffuenf/canonical.xml</file>
+                    <file>ffuenf_canonical.xml</file>
                 </ffuenf_canonical>
             </updates>
         </layout>
@@ -53,18 +58,21 @@
         <layout>
             <updates>
                 <ffuenf_canonical>
-                    <file>ffuenf/canonical.xml</file>
+                    <file>ffuenf_canonical.xml</file>
                 </ffuenf_canonical>
             </updates>
         </layout>
     </adminhtml>
     <default>
-        <canonical>
+        <ffuenf_canonical>
             <general>
                 <enable>0</enable>
             </general>
-        </canonical>
+        </ffuenf_canonical>
     </default>
+    <uninstall>
+        <filename>uninstall.txt</filename>
+    </uninstall>
     <phpunit>
         <suite>
             <modules>
