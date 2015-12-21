@@ -1,6 +1,6 @@
 app/code/community/Ffuenf/Canonical                              app/code/community/Ffuenf/Canonical
-app/design/adminhtml/default/default/layout/ffuenf/canonical.xml app/design/adminhtml/default/default/layout/ffuenf/canonical.xml
+app/design/adminhtml/default/default/layout/ffuenf_canonical.xml app/design/adminhtml/default/default/layout/ffuenf_canonical.xml
 app/design/adminhtml/default/default/template/canonical          app/design/adminhtml/default/default/template/canonical
-app/design/frontend/base/default/layout/ffuenf/canonical.xml     app/design/frontend/base/default/layout/ffuenf/canonical.xml
+app/design/frontend/base/default/layout/ffuenf_canonical.xml     app/design/frontend/base/default/layout/ffuenf_canonical.xml
 app/design/frontend/base/default/template/canonical              app/design/frontend/base/default/template/canonical
 app/etc/modules/Ffuenf_Canonical.xml                             app/etc/modules/Ffuenf_Canonical.xml
