@@ -59,6 +59,15 @@ class Ffuenf_Canonical_Test_Config_Main extends EcomDev_PHPUnit_Test_Case_Config
             'adminhtml',
             'ffuenf_canonical.xml'
         );
+        $this->assertLayoutFileDefined(
+            'frontend',
+            'ffuenf_canonical.xml',
+            'ffuenf_canonical'
+        );
+        $this->assertLayoutFileExists(
+            'frontend',
+            'ffuenf_canonical.xml'
+        );
     }
 
     /**

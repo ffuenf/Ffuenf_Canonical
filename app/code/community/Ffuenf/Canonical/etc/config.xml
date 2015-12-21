@@ -29,6 +29,11 @@
                 <class>Ffuenf_Canonical_Helper</class>
             </ffuenf_canonical>
         </helpers>
+        <blocks>
+            <ffuenf_canonical>
+                <class>Ffuenf_Canonical_Block</class>
+            </ffuenf_canonical>
+        </blocks>
         <resources>
             <ffuenf_canonical_setup>
                 <setup>
