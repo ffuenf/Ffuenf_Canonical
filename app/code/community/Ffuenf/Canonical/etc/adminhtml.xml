@@ -29,9 +29,9 @@
                         <children>
                             <config>
                                 <children>
-                                    <canonical translate="title" module="ffuenf_canonical">
+                                    <ffuenf_canonical translate="title" module="ffuenf_canonical">
                                         <title>Ffuenf_Canonical Module</title>
-                                    </canonical>
+                                    </ffuenf_canonical>
                                 </children>
                             </config>
                         </children>
